@@ -12,8 +12,8 @@
     <bottom>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <ComboBox fx:id="comboTheme" onAction="#selectedStyle" prefWidth="150.0" />
-                <ComboBox fx:id="comboView" onAction="#selectedPage" prefWidth="150.0" />
+                <ComboBox fx:id="comboTheme" prefWidth="150.0" />
+                <ComboBox fx:id="comboView" prefWidth="150.0" />
             </children>
         </HBox>
     </bottom>

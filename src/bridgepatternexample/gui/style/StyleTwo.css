@@ -9,15 +9,13 @@ and open the template in the editor.
 */
 
 .transButton {
-    -fx-background-color: transparent;
     -fx-fill: cornflowerblue;
 }
 
 .breadText {
     -fx-font-size: 11pt;
     -fx-font-family: "Segoe UI Semibold";
-    -fx-text-fill: white;
-    -fx-opacity: 0.6;
+    -fx-text-fill: darkmagenta;
 }
 
 .background {

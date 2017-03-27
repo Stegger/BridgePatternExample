@@ -28,41 +28,86 @@ public class MainController implements Initializable
 {
 
     @FXML
-    private ComboBox<Style> comboTheme;
+    private ComboBox<String> comboTheme;
     @FXML
-    private ComboBox<StyleablePane> comboView;
+    private ComboBox<String> comboView;
     @FXML
     private BorderPane root;
 
-    private AnchorPane page;
+    private StyleablePane page;
     private Style style;
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        comboView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<StyleablePane>()
+        setComboboxes();
+        setupListners();
+    }
+
+    private void setComboboxes()
+    {
+        comboTheme.getItems().add("Style one");
+        comboTheme.getItems().add("Style two");
+        comboView.getItems().add("Page one");
+        comboView.getItems().add("Page two");
+    }
+
+    private void setupListners()
+    {
+        comboTheme.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()
         {
+
             @Override
-            public void changed(ObservableValue<? extends StyleablePane> observable, StyleablePane oldValue, StyleablePane newValue)
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue)
             {
-                page = newValue;
-                if (style != null)
+                if (comboView.getSelectionModel().getSelectedItem() != null && !comboView.getSelectionModel().getSelectedItem().isEmpty())
                 {
-                    page.setStyle(style);
+                    try
+                    {
+                        updatePage(comboView.getSelectionModel().getSelectedItem(), newValue);
+                    } catch (MalformedURLException ex)
+                    {
+                        //TODO Handle exception
+                    }
                 }
-                root.setCenter(page);
             }
         });
-
-        try
+        comboView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()
         {
-            comboView.getItems().add(new PageOneController(null));
-            comboView.getItems().add(new PageTwoController(null));
 
-        } catch (MalformedURLException ex)
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue)
+            {
+                if (comboTheme.getSelectionModel().getSelectedItem() != null && !comboTheme.getSelectionModel().getSelectedItem().isEmpty())
+                {
+                    try
+                    {
+                        updatePage(newValue, comboTheme.getSelectionModel().getSelectedItem());
+                    } catch (MalformedURLException ex)
+                    {
+                        //TODO Handle exception
+                    }
+                }
+            }
+        });
+    }
+
+    private void updatePage(String page, String style) throws MalformedURLException
+    {
+        Style styleTheme = Style.getStyle(style);
+
+        switch (page)
         {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            case "Page one":
+                this.page = new PageOneController(styleTheme);
+                root.setCenter(this.page);
+                break;
+            case "Page two":
+                this.page = new PageTwoController(styleTheme);
+                root.setCenter(this.page);
+                break;
         }
+
     }
 
 }

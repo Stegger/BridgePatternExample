@@ -9,7 +9,36 @@ package bridgepatternexample.gui.model.bridgeView;
  *
  * @author pgn
  */
-public class Style
+public interface Style
 {
-    
+
+    public static Style getStyle(String style)
+    {
+        if (style.equals("Style one"))
+        {
+            return new Style()
+            {
+
+                @Override
+                public String getStylesheet()
+                {
+                    return "bridgepatternexample/gui/style/StyleOne.css";
+                }
+            };
+        }
+        else
+        {
+            return new Style()
+            {
+
+                @Override
+                public String getStylesheet()
+                {
+                    return "bridgepatternexample/gui/style/StyleTwo.css";
+                }
+            };
+        }
+    }
+
+    public String getStylesheet();
 }

@@ -24,7 +24,8 @@ public abstract class StyleablePane extends AnchorPane
         FXMLLoader fxmlLoader = new FXMLLoader(page);
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-        
+        getStylesheets().clear();
+        getStylesheets().add(style.getStylesheet());
         try
         {
             fxmlLoader.load();
