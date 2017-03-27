@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<fx:root id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="background" type="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60">
+    <children>
+        <Label layoutX="274.0" layoutY="190.0" styleClass="breadText" text="WORLD" />
+        <Button layoutX="219.0" layoutY="185.0" mnemonicParsing="false" text="Hello">
+            <styleClass>
+                <String fx:value="transButton" />
+                <String fx:value="breadText" />
+            </styleClass>
+        </Button>
+    </children>
+</fx:root>

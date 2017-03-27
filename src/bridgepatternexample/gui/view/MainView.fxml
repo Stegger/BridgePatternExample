@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="root" prefHeight="474.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bridgepatternexample.gui.controller.MainController">
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ComboBox fx:id="comboTheme" onAction="#selectedStyle" prefWidth="150.0" />
+                <ComboBox fx:id="comboView" onAction="#selectedPage" prefWidth="150.0" />
+            </children>
+        </HBox>
+    </bottom>
+    <top>
+        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/bridge.png" />
+                    </image>
+                </ImageView>
+                <Label alignment="CENTER" contentDisplay="CENTER" text="Fun With Bridge Pattern" textAlignment="CENTER">
+                    <font>
+                        <Font name="Broadway" size="28.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </top>
+</BorderPane>

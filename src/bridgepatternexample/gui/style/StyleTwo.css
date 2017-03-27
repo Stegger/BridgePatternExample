@@ -1,0 +1,25 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 14, 2017, 10:02:44 AM
+    Author     : pgn
+*/
+
+.transButton {
+    -fx-background-color: transparent;
+    -fx-fill: cornflowerblue;
+}
+
+.breadText {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+}
+
+.background {
+    -fx-background-color: bisque;
+}
